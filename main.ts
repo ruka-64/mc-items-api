@@ -82,7 +82,7 @@ app.get(`/:name`, async (c) => {
       );
     }
     if (direct) {
-      return c.redirect(`/icon/${version}/${filename}.webp`);
+      return await fetch(`/icon/${version}/${filename}.webp`);
     }
     return c.json({
       success: true,
