@@ -2,6 +2,7 @@
   "version": "5",
   "specifiers": {
     "jsr:@hono/hono@^4.9.10": "4.9.10",
+    "jsr:@std/encoding@^1.0.10": "1.0.10",
     "npm:@types/jsdom@27": "27.0.0",
     "npm:@types/node@*": "24.0.14",
     "npm:jsdom@27": "27.0.0"
@@ -9,6 +10,9 @@
   "jsr": {
     "@hono/hono@4.9.10": {
       "integrity": "b416cf3bf42e33353e37ea13df409b08bd9a67fabc5fca630f76924fbadb01e5"
+    },
+    "@std/encoding@1.0.10": {
+      "integrity": "8783c6384a2d13abd5e9e87a7ae0520a30e9f56aeeaa3bdf910a3eaaf5c811a1"
     }
   },
   "npm": {
@@ -300,6 +304,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@hono/hono@^4.9.10",
+      "jsr:@std/encoding@^1.0.10",
       "npm:@types/jsdom@27",
       "npm:jsdom@27"
     ]

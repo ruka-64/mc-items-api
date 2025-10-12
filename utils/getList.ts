@@ -1,5 +1,6 @@
 import { version } from '../consts.ts';
 import { JSDOM } from 'jsdom';
+import { kv } from '../main.ts';
 
 type getListFailed = {
   success: false;
@@ -15,8 +16,6 @@ type getListSuccess = {
 };
 
 type getListT = getListSuccess | getListFailed;
-
-const kv = await Deno.openKv();
 
 const replacements: Record<string, string> = {
   'enchanted_book[stored_enchantments={levels:{“minecraft:aqua_affinity”:1}}]': 'enchanted_book',

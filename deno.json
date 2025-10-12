@@ -1,5 +1,6 @@
 {
   "imports": {
+    "@std/encoding": "jsr:@std/encoding@^1.0.10",
     "@types/jsdom": "npm:@types/jsdom@^27.0.0",
     "hono": "jsr:@hono/hono@^4.9.10",
     "jsdom": "npm:jsdom@^27.0.0"
