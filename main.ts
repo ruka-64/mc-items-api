@@ -32,7 +32,7 @@ app.get(`/icon/${version}/:id`, async (c) => {
       const arrBuff = await res.arrayBuffer();
       const base64 = encodeBase64(arrBuff);
       console.log(base64);
-      await kv.set(['iconCache', c.req.param('id')], base64, { expireIn: 1000 * 60 });
+      await kv.set(['iconCache', c.req.param('id')], base64, { expireIn: 1000 * 60 * 60 * 24 });
       return c.body(arrBuff, 200, {
         'Content-Type': 'image/webp',
         'X-MCAPI-Cache': 'MISS',
