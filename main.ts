@@ -50,6 +50,7 @@ app.get(`/icon/${version}/:id`, async (c) => {
 });
 
 app.get(`/:name`, async (c) => {
+  const direct = c.req.query('direct')! === 'yes';
   const itemName = c.req.param('name');
   if (!itemName) {
     return c.json(
@@ -79,6 +80,9 @@ app.get(`/:name`, async (c) => {
         },
         400
       );
+    }
+    if (direct) {
+      return c.redirect(`/icon/${version}/${filename}.webp`);
     }
     return c.json({
       success: true,
