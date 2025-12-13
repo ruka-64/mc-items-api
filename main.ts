@@ -2,10 +2,15 @@ import { Hono } from 'hono';
 import { getList } from './utils/getList.ts';
 import { version } from './consts.ts';
 import { decodeBase64, encodeBase64 } from '@std/encoding/base64';
+import { cors } from 'hono/cors'
 
 export const kv = await Deno.openKv();
 
 const app = new Hono();
+
+app.use('*', cors({
+  origin: '*',
+}));
 
 app.get('/', (c) => {
   return c.text('Minecraft Items API');
