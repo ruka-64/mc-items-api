@@ -69,7 +69,22 @@ export async function getList(): Promise<getListT> {
     }
     results[itemName ?? 'no text'] = img!.src.replace(`../../icon/${version}/`, '').replace('.webp', '');
   });
-  const filtered = Object.entries(results).filter(([k]) => {
+  const parseFn = (oldObj: Record<string, string>) => {
+    const newObj: Record<string, string> = {};
+    for (const key in oldObj) {
+      const value = oldObj[key];
+      let newKey: string = key;
+      if (key.startsWith('goat_horn[')) newKey = 'goat_horn';
+      if (key.startsWith('enchanted_book[')) newKey = 'enchanted_book';
+
+      //* Set if not exists
+      if (!newObj[newKey]) newObj[newKey] = value;
+    }
+    return newObj;
+  };
+
+  const parsedResults = parseFn(results);
+  const filtered = Object.entries(parsedResults).filter(([k]) => {
     if (k.endsWith('slab[type=double]')) return false;
     if (k.endsWith('[powered=true]')) return false;
     if (k.endsWith('[lit=true]')) return false;
@@ -112,10 +127,8 @@ export async function getList(): Promise<getListT> {
     if (k === 'bamboo_sapling') return false;
     if (k === 'end_gateway') return false;
     if (k.startsWith('painting[')) return false;
-    if (k.startsWith('enchanted_book[')) return false;
     if (k.startsWith('ominous_bottle[')) return false;
     if (k.startsWith('suspicious_stew[')) return false;
-    if (k.startsWith('goat_horn[')) return false;
     if (k.startsWith('firework_rocket[')) return false;
     if (k.startsWith('potted_')) return false;
     if (k.startsWith('potion[potion_contents={potion:”minecraft:long_')) return false;
