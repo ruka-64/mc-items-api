@@ -104,11 +104,12 @@ export async function getList(): Promise<getListT> {
     if (k.endsWith('wall_banner')) return false;
     if (k.endsWith('wall_sign')) return false;
     if (k.endsWith('wall_hanging_sign')) return false;
+    if (k.endsWith(' 37')) return false;
     if (k.endsWith(' 36')) return false;
+    if (k.endsWith(' 2')) return false;
     if (k === 'allow') return false;
     if (k === 'deny') return false;
     if (k === 'border_block') return false;
-
     if (k === 'petrified_oak_slab') return false;
     if (k === 'debug_stick') return false;
     if (k === 'farmland') return false;
@@ -126,6 +127,10 @@ export async function getList(): Promise<getListT> {
     if (k === 'potatoes') return false;
     if (k === 'bamboo_sapling') return false;
     if (k === 'end_gateway') return false;
+    if (k === 'bubble_column') return false;
+    if (k === 'cocoa') return false;
+    if (k === 'tipped_arrow') return false;
+    if (k.startsWith('filled_map ')) return false;
     if (k.startsWith('painting[')) return false;
     if (k.startsWith('ominous_bottle[')) return false;
     if (k.startsWith('suspicious_stew[')) return false;
